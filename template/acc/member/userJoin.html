@@ -1,0 +1,30 @@
+{% extends 'acc/common/base.html'%}
+{% block title%}<title>회원가입</title>{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>JOIN</h1>
+            <div class="input-group flex-nowrap mt-5">
+                <span class="input-group-text" id="addon-wrapping">Username</span>
+                <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" placeholder="Username을 입력하세요">
+            </div>
+            <div class="input-group flex-nowrap mt-2">
+                <span class="input-group-text" id="addon-wrapping">Password</span>
+                <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping" placeholder="Password를 입력하세요">
+            </div>
+            <div class="input-group input-group-lg mt-4">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Comment</span>
+                <textarea class="form-control" style="height: 200px;" name="comment"></textarea>
+            </div>
+            <div class="input-group input-group-lg mt-4">
+                <input type="file" name="pic" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <div class="mt-5 text-end">
+                <a href="{% url 'acc:index'%}"><button type="button" class="btn btn-primary">HOME</button></a>
+                <button class="btn btn-primary">가입하기</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

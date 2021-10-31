@@ -1,0 +1,23 @@
+{% extends 'board/common/base.html'%}
+{% block title%}<title>게시글등록</title>{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>게시글생성</h1>
+            <div class="input-group flex-nowrap mt-5">
+                <span class="input-group-text" id="addon-wrapping">글제목</span>
+                <input type="text" name="subject" class="form-control" aria-describedby="addon-wrapping" placeholder="">
+            </div>
+            <div class="input-group input-group-lg mt-4">
+                <span class="input-group-text" id="inputGroup-sizing-lg">내용</span>
+                <textarea class="form-control" style="height: 200px;" name="content"></textarea>
+            </div>
+            <div class="mt-5 text-end">
+                <a href="{% url 'board:index'%}"><button type="button" class="btn btn-primary">HOME</button></a>
+                <button class="btn btn-primary">게시글생성</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
